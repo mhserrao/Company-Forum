@@ -1,0 +1,92 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #222222;
+	font-family: verdana;
+	color: white;
+	text-align: center;
+	font-size: 25px;
+	padding: 5px 5px 5px 5px;
+}
+
+table {
+	width: 100%;
+}
+
+a {
+	color: #99ddff;
+}
+
+img {
+	width: 70%;
+}
+
+input[type=submit] {
+	font-size: 25px;
+	background-color: #99ddff;
+	padding: 5px;
+	border-style: solid;
+	border-color: black;
+	text-decoration: none;
+	color: black;
+	margin: 10px;
+	font-weight: bold;
+	display: inline-block;
+	border-radius: 5px;
+}
+
+input[type=submit].hover {
+	border-color: black;
+	background-color: #111111;
+}
+
+input[type=text], input[type=password], textarea {
+	font-size: 25px;
+	font-family: verdana;
+}
+
+label, textarea {
+	vertical-align: top;
+}
+
+label {
+	width:150px;
+	display: inline-block;
+	text-align:right;
+}
+
+.outerdiv{
+	width: 100%;
+	text-align: left;
+}
+
+.alert {
+	color: red;
+}
+
+.threadmsg{
+	width:70%;
+}
+
+.threadttl{
+	width:70%;
+}
+
+#author{
+	color: pink;
+	float:left;
+}
+
+#dateTime{
+	color: #cccccc;
+	float:right;
+}
+
+#msg{
+	text-align: left;
+}
+
+#authorNames {
+	color: pink;
+	text-decoration: underline;
+}

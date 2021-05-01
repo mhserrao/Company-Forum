@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/styles.css" th:href="@{/css/styles.css}" />
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:if="${param.logout}">
+		<span class="alert">You have been logged out.</span>
+	</div>
+	<h1>Welcome to Maizy's company!</h1>
+	<h4>Even we don't know what we do!</h4>
+	<h4>But we definitely live by a Hakuna Matata philosophy!</h4>
+	<img src="../static/img/cat.jpg" th:src="@{/img/cat.jpg}" />
+	<h3>
+		<a th:href="@{/credentials}">See what everyone's saying!</a>
+	</h3>
+</body>
+</html>

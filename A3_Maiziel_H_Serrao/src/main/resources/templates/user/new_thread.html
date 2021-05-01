@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/styles.css" th:href="@{/css/styles.css}" />
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:if="${param.thread_exists}">
+		<div class="alert ">This thread already exists! Create a new
+			one...It's not that hard.</div>
+	</div>
+	<div th:if="${param.thread_null}">
+		<div class="alert ">Ummm...please enter a thread title.</div>
+	</div>
+	<div th:if="${param.message_null}">
+		<div class="alert ">Ummm...please enter a message.</div>
+	</div>
+	<div th:if="${param.message_too_long}">
+		<div class="alert ">You're rambling! Please shorten your message!</div>
+	</div>
+	<form th:method="post" th:action="@{/create_thread}"
+		th:object="${new_message}">
+		<input type="hidden" th:field="*{id}"> <input type="hidden"
+			th:field="*{author}"> <input type="hidden"
+			th:field="*{message_date}"> <input type="hidden"
+			th:field="*{message_time}"> <h2>Thread Title</h2><input type="text"
+			th:field="*{thread_id}" id="threadttl"> <br>
+		<br> <h2>Message
+		</h2>
+		<textarea class="threadmsg" th:field="*{message}" rows="8"></textarea>
+		<br> <br> <input type="submit" value="Add Thread!">
+	</form>
+	<br>
+	<h2>
+		<a th:href="@{/user}">Return to forum!</a>
+	</h2>
+</body>
+</html>

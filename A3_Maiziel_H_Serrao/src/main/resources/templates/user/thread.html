@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/styles.css" th:href="@{/css/styles.css}" />
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:if="${param.message_null}">
+		<div class="alert ">Ummm...please enter a message.</div>
+	</div>
+	<div th:if="${param.message_too_long}">
+		<div class="alert ">You're rambling! Please shorten your message!</div>
+	</div>
+	<h2 th:text="${messages[0].thread_id}"></h2>
+	<hr>
+	<div class="outerdiv" th:each="m : ${messages}">
+		<div id="authorNameDateDiv">
+		<span th:text="${m.author}" id="author"> </span><span
+			th:text="|${m.message_date} ${m.message_time}|" id="dateTime"></span>
+		</div>
+		<br>
+		<p th:text="${m.message}" id="msg"></p>
+		<hr>
+	</div>
+	<h2>Add Message</h2>
+	<form th:method="post" th:action="@{/addMessage}"
+		th:object="${new_message}">
+		<input type="hidden" th:field="*{id}"> <input type="hidden"
+			th:field="*{author}"> <input type="hidden"
+			th:field="*{thread_id}"> <input type="hidden"
+			th:field="*{message_date}"> <input type="hidden"
+			th:field="*{message_time}">
+		<textarea th:field="*{message}" rows="8" class="threadmsg"></textarea>
+		<br>
+		<br> <input type="submit" value="Add Message!">
+	</form>
+	<h2>
+		<a th:href="@{/user}">Return to forum!</a>
+	</h2>
+</body>
+</html>

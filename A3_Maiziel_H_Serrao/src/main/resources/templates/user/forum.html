@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/styles.css" th:href="@{/css/styles.css}" />
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script th:src="@{/js/script.js}"></script>
+</head>
+<body>
+	<h2>Threads</h2>
+	<table>
+		<tr>
+			<th>Thread</th>
+			<th>Author</th>
+			<th>Date</th>
+			<th>Time</th>
+		</tr>
+		<tr th:each="t: ${threads}">
+			<td><a th:href="@{/user/{thread_id} (thread_id=${t.thread_id})}"
+				th:text="${t.thread_id}" th:modelAttribute="thread_id"
+				th:onclick="'getAlert()'"></a></td>
+			<td><p th:text="${t.author}"
+				th:onclick="'getCount('+ ${t.id} + ')'" id="authorNames"></p></td>
+			<td th:text="${t.message_date}"></td>
+			<td th:text="${t.message_time}"></td>
+		</tr>
+	</table>
+	<br>
+	<br>
+	<div>
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Logout" />
+		</form>
+	</div>
+	<h2>
+		<a th:href="@{/new_thread}">Create a new thread!</a>
+	</h2>
+</body>
+</html>
